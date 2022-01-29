@@ -17,13 +17,14 @@ int main()
             if (arr[i] == arr[j])
             {
                 pos = j;
-                for (i = pos; i < n; i++)
-                    arr[i] = arr[i + 1];
+                for (int k = pos; k < n; k++)
+                    arr[k] = arr[k + 1];
+                n--;
             }
         }
     }
     cout << "\n Array after deletion of duplicate elements is : ";
-    for (i = 0; i < n - 1; i++)
+    for (i = 0; i < n; i++)
         cout << arr[i] << " ";
 
     return 0;
