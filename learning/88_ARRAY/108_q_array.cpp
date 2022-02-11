@@ -17,7 +17,7 @@ int main()
         {
             if (arr[i] + arr[j] == 50)
             {
-                cout << i << " + " << j << " = 50";
+                cout << arr[i] << " + " << arr[j] << " = 50";
                 cout << "\n";
             }
         }
