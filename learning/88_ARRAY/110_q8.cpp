@@ -26,11 +26,11 @@ int main()
             o++;
         }
     }
-    for (int i = 0; i <= e; i++)
+    for (int i = 0; i < e; i++)
     {
         cout << even[i] << "\t";
     }
-    for (int i = 0; i <= o; i++)
+    for (int i = 0; i < o; i++)
     {
         cout << odd[i] << "\t";
     }
