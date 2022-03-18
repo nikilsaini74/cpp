@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
-    int n, arr[20], even[] = {0}, odd[] = {0}, e = 0, o = 0;
+    int n, arr[20], even[20], odd[20], e = 0, o = 0;
 
     cout << "Enter the number of elements = ";
     cin >> n;
