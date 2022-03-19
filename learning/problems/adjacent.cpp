@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
 using namespace std;
 bool compare(int a, int b)
@@ -31,7 +30,6 @@ int main()
         {
             counter++;
         }
-        counter++;
         if (counter % 2 == 0)
         {
             for (int i = 0; i < n; i++)
@@ -40,6 +38,7 @@ int main()
         }
         else
             cout << -1 << "\n";
+        counter = 0;
         t--;
     }
     return 0;
