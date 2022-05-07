@@ -25,18 +25,20 @@ public:
     {
         return Company;
     }
+    void setAge(int age)
+    {
+        if (age >= 18)
+            Age = age;
+    }
+    int getAge()
+    {
+        return Age;
+    }
     void intro()
     {
         cout << "Name - " << Name << endl;
         cout << "Company - " << Company << endl;
         cout << "Age - " << Age << endl;
-    }
-
-    Employee(string name, string company, int age) // constructor
-    {
-        Name = name;
-        Company = company;
-        Age = age;
     }
 };
 int main()
@@ -46,5 +48,8 @@ int main()
 
     Employee employee2 = Employee("Satyam", "XYZ", 20);
     employee2.intro();
+
+    employee1.setAge(12);
+    cout << employee1.getName() << " is " << employee1.getAge() << " years old";
     return 0;
 }
