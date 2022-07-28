@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Employee // class
@@ -43,13 +44,17 @@ public:
 };
 int main()
 {
-    Employee employee1 = Employee("Anjali", "ABC", 18);
+
+    Employee employee1 = Employee();
+    employee1.setAge(30);
+    employee1.setName("Pagal");
+
     employee1.intro();
 
-    Employee employee2 = Employee("Satyam", "XYZ", 20);
+    Employee employee2 = Employee();
     employee2.intro();
 
-    employee1.setAge(12);
-    cout << employee1.getName() << " is " << employee1.getAge() << " years old";
+     employee1.setAge(45);
+     cout << employee1.getName() << " is " << employee1.getAge() << " years old";
     return 0;
 }
