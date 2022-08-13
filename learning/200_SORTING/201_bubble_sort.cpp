@@ -1,24 +1,14 @@
 #include <iostream>
 using namespace std;
-void swap(int *a, int *b)
+void bubbleSort(int arr[], int n)
 {
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
-}
-void selectionSort(int arr[], int n)
-{
-    int min_idx;
     for (int i = 0; i < n - 1; i++)
     {
-        min_idx = i;
-        for (int j = i + 1; j < n; j++)
-            if (arr[j] < arr[i])
-            {
-                min_idx = j;
-                swap(&arr[min_idx], &arr[i]);
-            }
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+                swap(arr[j], arr[j + 1]);
+        }
     }
 }
 void printArr(int arr[], int n)
@@ -34,7 +24,7 @@ int main()
     int a[] = {34, 67, 12, 20, 8};
     int n = 5;
     printArr(a, n);
-    selectionSort(a, n);
+    bubbleSort(a, n);
     cout << "Sorted = " << endl;
     printArr(a, n);
 
