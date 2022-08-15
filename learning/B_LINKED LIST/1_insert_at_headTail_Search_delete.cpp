@@ -1,4 +1,4 @@
-// To insert at head and tail in a linked list and search an element
+// To insert at head and tail in a linked list and search an element and delete.
 
 #include <iostream>
 using namespace std;
@@ -66,6 +66,29 @@ void display(node *head)
     cout << "NULL";
 }
 
+void deleteAtHead(node *&head)
+{
+    node *todelete = head;
+    head = head->next;
+
+    delete todelete;
+}
+void deletion(node *&head, int val)
+{
+    if (head == NULL)
+        return;
+    if (head->next == NULL)
+        deleteAtHead(head);
+    node *temp = head;
+    while (temp->next->data != val)
+    {
+        temp = temp->next;
+    }
+    node *todelete = temp->next;
+    temp->next = temp->next->next;
+
+    delete todelete;
+}
 int main()
 {
     node *he = NULL;
@@ -75,7 +98,10 @@ int main()
     insertAtHead(he, 4);
     display(he);
     cout << endl;
-    cout << search(he, 3);
+    cout << search(he, 3) << endl;
+    deletion(he, 1);
+    deleteAtHead(he);
+    display(he);
 
     return 0;
 }
