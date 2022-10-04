@@ -1,4 +1,4 @@
-// inheritance is done to access attributes of base class and can add additiona features as well
+// inheritance is done to access attributes of base class and can add additional features as well
 
 #include <iostream>
 using namespace std;

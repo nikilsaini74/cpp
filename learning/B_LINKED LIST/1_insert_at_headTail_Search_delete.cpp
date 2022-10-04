@@ -91,7 +91,7 @@ void deletion(node *&head, int val)
 }
 int main()
 {
-    node *he = NULL;
+    node *he = NULL;    
     insertAtTail(he, 1);
     insertAtTail(he, 2);
     insertAtTail(he, 3);

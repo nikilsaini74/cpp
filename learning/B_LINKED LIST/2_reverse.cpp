@@ -1,4 +1,5 @@
-// to reverse a linked list iteratively and recursively. 
+// to reverse a linked list iteratively and recursively.
+// to reverse k nodes by iteratively till k and then recursively.
 
 #include <iostream>
 using namespace std;
@@ -40,10 +41,59 @@ void display(node *head)
         cout << temp->data << "->";
         temp = temp->next;
     }
-    cout << "NULL";
+    cout << "NULL" << endl;
 }
 
+node *reverse(node *&head) // iteratively
+{
+    node *prevptr = NULL;
+    node *currptr = head;
+    node *nextptr;
 
+    while (currptr != NULL)
+    {
+        nextptr = currptr->next;
+        currptr->next = prevptr;
+
+        prevptr = currptr;
+        currptr = nextptr;
+    }
+    return prevptr; // newhead = prevptr, currptr = NULL
+}
+
+node *recursiveReverse(node *&head) // recursively
+{
+    if (head == NULL || head->next == NULL) // base case
+        return head;
+
+    node *newhead = recursiveReverse(head->next);
+    head->next->next = head;
+    head->next = NULL;
+
+    return newhead;
+}
+
+node *reverse_k(node *&head, int k) // k node
+{
+    node *prevptr = NULL;
+    node *currptr = head;
+    node *nextptr;
+    int count = 0;
+    while (currptr != NULL && count < k)
+    {
+        nextptr = currptr->next;
+        currptr->next = prevptr;
+
+        prevptr = currptr;
+        currptr = nextptr;
+        count++;
+    }
+    if (nextptr != NULL)
+    {
+        head->next = reverse_k(nextptr, k);
+    }
+    return prevptr;
+}
 
 int main()
 {
@@ -51,8 +101,18 @@ int main()
     insertAtTail(he, 1);
     insertAtTail(he, 2);
     insertAtTail(he, 3);
+    insertAtTail(he, 4);
     display(he);
-    cout << endl;
-    
+
+    // node *newhead = reverse(he);
+    // display(newhead);
+
+    // node *newhead = recursiveReverse(he);
+    // display(newhead);
+
+    int k = 2;
+    node *newhead = reverse_k(he, k);
+    display(newhead);
+
     return 0;
 }
