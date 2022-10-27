@@ -16,6 +16,7 @@ void insertAtBottom(stack<int> &st, int ele)
     st.pop();
     insertAtBottom(st, ele);
     st.push(topele);
+    return;
 }
 
 void reverse(stack<int> &st)
