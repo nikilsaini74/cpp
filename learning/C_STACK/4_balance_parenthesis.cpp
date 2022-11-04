@@ -5,51 +5,68 @@
 #include <string.h>
 using namespace std;
 
-void check(stack<string> &st, string a)
+bool check(string a)
 {
-    int i, j;
-    for (i = 0; i < a.length(); i++)
+    stack<char> st;
+    int n = a.length();
+    bool ans = true;
+    for (int i = 0; i < n; i++)
     {
-        string word = "";
-        while (a[i] != '}' && a[i] != ']' && a[i] != ')' && i < a.length())
+        if (a[i] == '{' or a[i] == '[' or a[i] == '(')
         {
-            word += a[i];
-            i++;
+            st.push(a[i]);
         }
-        st.push(word);
+        else if (a[i] == '}')
+        {
+            if (!st.empty() and st.top() == '{')
+            {
+                st.pop();
+            }
+            else
+            {
+                ans = false;
+                break;
+            }
+        }
+        else if (a[i] == ']')
+        {
+            if (!st.empty() and st.top() == '[')
+            {
+                st.pop();
+            }
+            else
+            {
+                ans = false;
+                break;
+            }
+        }
+        else if (a[i] == ')')
+        {
+            if (!st.empty() and st.top() == '(')
+            {
+                st.pop();
+            }
+            else
+            {
+                ans = false;
+                break;
+            }
+        }
     }
-    for (int j = i; j < a.length(); j++)
-    {
-        if (a[j] == '}' && st.top() == '{')
-        {
-            st.pop();
-        }
-        else if (a[j] == ']' && st.top() == '[')
-        {
-            st.pop();
-        }
-        else if (a[j] == ')' && st.top() == '(')
-        {
-            st.pop();
-        }
-    }
-}
-return;
+    // if (!st.empty())
+    //   return false;
+
+    return ans;
 }
 
 int main()
 {
-    stack<string> st;
     string a;
     cin >> a;
-    cout << a;
-    cout << a.length();
-    check(st, a);
-    while (!st.empty())
-    {
-        cout << st.top() << " ";
-        st.pop();
-    }
+    if (check(a))
+        cout << "Balanced Parenthesis";
+    else
+        cout << "Not Balanced";
 
     return 0;
 }
