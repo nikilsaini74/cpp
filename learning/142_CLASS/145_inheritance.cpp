@@ -36,6 +36,7 @@ class CookingYT : public YoutubeChannel // inherit
 {
     CookingYT(string name, string ownername) : YoutubeChannel(name, ownername)
     {
+        
     }
     void practice()
     {
