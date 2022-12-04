@@ -15,10 +15,10 @@ public:
     void push(int val)
     {
         q2.push(val);
-
+        N++;
         while (!q1.empty())
         {
-            N++;
+           
             q2.push(q1.front());
             q1.pop();
         }
@@ -51,7 +51,7 @@ int main()
     cout << st.top() << endl;
     st.pop();
     cout << st.top() << endl;
-    st.size();
+    cout << st.size();
 
     return 0;
 }
