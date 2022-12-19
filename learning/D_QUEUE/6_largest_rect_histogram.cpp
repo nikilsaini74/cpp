@@ -7,9 +7,10 @@ int maxArea(int a[],int n)
     int i = 0;
     int ans = 0;
     stack<int> s;
+    s.push(0);
     while (i < n)
     {
-       // s.push(0);
+       //s.push(0);
         while (!s.empty() && a[s.top()] > a[i])
         {
             int t = s.top();
@@ -33,7 +34,7 @@ int maxArea(int a[],int n)
 
 int main()
 {
-    int a[] = {2, 1, 5, 6, 2, 3};
+    int a[] = {6, 1, 5, 4, 5, 2, 6};
       int n = sizeof(a)/sizeof(a[0]);
     cout << maxArea(a,n);
 
